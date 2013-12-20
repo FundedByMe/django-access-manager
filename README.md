@@ -1,7 +1,11 @@
 Django Access Manager
 =====================
 
-An abstract access manager for Django
+An abstract access manager for Django.
+
+A tidy and extendable way of specifying access requirements for views
+instead of defining all the logic inside of the views or using mixins
+for every requirement.
 
 Installation
 ------------
