@@ -10,7 +10,13 @@ for every requirement.
 Installation
 ------------
 
-Install using pip (not on PyPI yet):
+Install using pip:
+
+```
+pip install django-access-manager
+```
+
+Or latest version in repo:
 
 ```
 pip install -e git+https://github.com/FundedByMe/django-access-manager/#egg=access_manager
