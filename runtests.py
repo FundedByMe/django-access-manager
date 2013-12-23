@@ -37,6 +37,7 @@ def main():
     app_path = 'access_manager'
     parent_dir, app_name = os.path.split(app_path)
     sys.path.insert(0, parent_dir)
+    print app_name
 
     settings.configure(**{
         "PAYPAL_APPLICATION_ID": 'fake',
