@@ -32,7 +32,6 @@ def main():
                 "PASSWORD": options.DATABASE_PASSWORD,
             }
         },
-        "SITE_ID": options.SITE_ID,
         "ROOT_URLCONF": app_name + ".urls",
         "TEMPLATE_LOADERS": (
             "django.template.loaders.filesystem.Loader",
@@ -45,36 +44,8 @@ def main():
         ),
         "INSTALLED_APPS": (
             "django.contrib.auth",
-            "django.contrib.contenttypes",
-            "django.contrib.sessions",
-            "django.contrib.sites",
             app_name,
         ),
-        "LOGGING": {
-            'version': 1,
-            'disable_existing_loggers': False,
-            'formatters': {
-                'verbose': {
-                    'format': '%(levelname)s %(asctime)s %(module)s %(process)d '
-                              '%(thread)d %(message)s'
-                },
-            },
-            'handlers': {
-                'console': {
-                    'level': 'DEBUG',
-                    'class': 'logging.StreamHandler',
-                    'formatter': 'verbose',
-                }
-            },
-            'loggers': {
-                app_name: {
-                    'handlers': ['console'],
-                    'level': 'DEBUG',
-                    'formatter': 'verbose',
-                    'propagate': True,
-                }
-            }
-        }
     })
     call_command("test", app_name)
 
