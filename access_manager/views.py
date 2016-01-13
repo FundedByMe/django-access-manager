@@ -31,13 +31,13 @@ class ManagedAccessViewMixin(object):
 
     def dispatch(self, *args, **kwargs):
         klasses = self.get_access_requirements()
-        if hasattr(self, 'request'):
-            if get_real_ip(self.request) not in self.access_exception_for_ips:
-                for requirement in klasses:
-                    if not isinstance(requirement, BaseRequirement):
-                        requirement = requirement()
-                    requirement.setup(*args, **kwargs)
-                    if not requirement.is_fulfilled():
-                        return requirement.not_fulfilled()
+
+        if get_real_ip(self.request) not in self.access_exception_for_ips:
+            for requirement in klasses:
+                if not isinstance(requirement, BaseRequirement):
+                    requirement = requirement()
+                requirement.setup(*args, **kwargs)
+                if not requirement.is_fulfilled():
+                    return requirement.not_fulfilled()
 
         return super(ManagedAccessViewMixin, self).dispatch(*args, **kwargs)
